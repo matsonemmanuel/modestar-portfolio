@@ -136,11 +136,7 @@ function Footer() {
               Powered by
             </span>
 
-            <img
-              src="/images/mat-labs.png"
-              alt="Matson Labs"
-              className="h-7 w-auto object-contain opacity-80 transition-opacity duration-300 hover:opacity-100"
-            />
+            
 
             <span className="text-sm font-semibold text-white/70">
               Mat Labs
