@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import {
   FiArrowUpRight,
@@ -9,27 +10,33 @@ import {
 const leadershipRoles = [
   {
     number: "01",
-    role: "Managing Director",
+    role: "Co-Founder & Managing Director",
     organization: "THEHASA Foundation",
     description:
-      "Providing leadership and strategic direction while supporting initiatives focused on community transformation, organizational growth and meaningful impact.",
+      "Leads strategic direction, partnership development, programme management, community engagement and resource mobilization. She joined THEHASA in 2024 as a Financial Clerk and progressed into leadership, helping advance the Foundation's registration and organizational growth.",
     icon: FiBriefcase,
+    linkLabel: "Organizational Leadership",
+    href: "#impact",
   },
   {
     number: "02",
-    role: "Board Leadership",
-    organization: "Strategic Governance",
+    role: "Managing Director & Registrar",
+    organization: "THEHASA Vocational Skills Development Center",
     description:
-      "Contributing to organizational leadership, governance, strategic thinking and decisions that strengthen institutions and their ability to serve communities.",
+      "Oversees vocational training programmes, staff supervision, youth empowerment, leadership training, financial literacy and enterprise development. Her work has contributed to strengthening vocational skills opportunities for refugee and host-community youth.",
     icon: FiCompass,
+    linkLabel: "Skills & Education",
+    href: "#education",
   },
   {
     number: "03",
-    role: "Community Leadership",
-    organization: "Community Initiatives",
+    role: "Community Empowerment",
+    organization: "Youth, Women & Families",
     description:
-      "Working alongside communities, young people and partners to support participation, collaboration and initiatives that create opportunities for positive change.",
+      "Supports vocational and entrepreneurship training for young people, community savings and credit initiatives for women and young mothers, youth leadership mentorship, and education and protection initiatives for vulnerable children.",
     icon: FiUsers,
+    linkLabel: "Community Impact",
+    href: "#impact",
   },
 ];
 
@@ -37,7 +44,8 @@ function Leadership() {
   return (
     <section id="leadership" className="bg-navy py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
-        {/* Heading */}
+
+        {/* Section heading */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,19 +54,19 @@ function Leadership() {
           className="mb-16 max-w-3xl"
         >
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-gold">
-            Leadership & Responsibility
+            Leadership &amp; Responsibility
           </p>
 
           <h2 className="font-display text-4xl font-medium leading-tight text-white sm:text-5xl lg:text-6xl">
-            Leadership that turns
-            <span className="text-gold"> responsibility </span>
+            Leadership that turns{" "}
+            <span className="text-gold">responsibility</span>{" "}
             into action.
           </h2>
 
           <p className="mt-6 max-w-2xl text-base leading-7 text-white/60">
-            Leadership is expressed through responsibility, collaboration and
-            a commitment to creating meaningful outcomes for people and
-            communities.
+            From organizational leadership to vocational education
+            and community empowerment, Modestar works to expand
+            opportunities for young people, women and families.
           </p>
         </motion.div>
 
@@ -86,36 +94,40 @@ function Leadership() {
                   </span>
                 </div>
 
-                {/* Role */}
+                {/* Role and organization */}
                 <div className="flex items-start gap-5">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold transition-colors duration-300 group-hover:bg-gold group-hover:text-navy">
                     <Icon size={20} strokeWidth={1.5} />
                   </div>
 
                   <div>
-                    <h3 className="font-display text-2xl font-medium text-white sm:text-3xl">
+                    <h3 className="font-display text-2xl font-medium leading-tight text-white sm:text-3xl">
                       {item.role}
                     </h3>
 
-                    <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+                    <p className="mt-2 text-xs font-semibold uppercase leading-6 tracking-[0.18em] text-gold">
                       {item.organization}
                     </p>
                   </div>
                 </div>
 
-                {/* Description */}
+                {/* Role description and link */}
                 <div className="md:pl-4">
                   <p className="max-w-xl text-sm leading-7 text-white/60">
                     {item.description}
                   </p>
 
-                  <span className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/50 transition-colors duration-300 group-hover:text-gold">
-                    Leadership & Impact
+                  <a
+                    href={item.href}
+                    className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/50 transition-colors duration-300 hover:text-gold"
+                  >
+                    {item.linkLabel}
+
                     <FiArrowUpRight
                       size={13}
                       className="transition-transform duration-300 group-hover:translate-x-1"
                     />
-                  </span>
+                  </a>
                 </div>
               </motion.article>
             );

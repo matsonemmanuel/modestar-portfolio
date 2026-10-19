@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from "react";
 
 interface AnimatedCounterProps {
@@ -15,6 +16,7 @@ function AnimatedCounter({
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLSpanElement | null>(null);
 
+  // Start the animation when the counter enters the viewport.
   useEffect(() => {
     const element = ref.current;
 
@@ -22,25 +24,27 @@ function AnimatedCounter({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !started) {
+        if (entry.isIntersecting) {
           setStarted(true);
+          observer.disconnect();
         }
       },
       {
-        threshold: 0.5,
+        threshold: 0.2,
       }
     );
 
     observer.observe(element);
 
     return () => observer.disconnect();
-  }, [started]);
+  }, []);
 
+  // Animate the counter smoothly from 0 to the target.
   useEffect(() => {
     if (!started) return;
 
     let startTime: number | null = null;
-    let animationFrame: number;
+    let animationFrame = 0;
 
     const animate = (currentTime: number) => {
       if (startTime === null) {
@@ -50,12 +54,10 @@ function AnimatedCounter({
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
 
-      // Smooth ease-out animation
+      // Smooth ease-out effect.
       const easedProgress = 1 - Math.pow(1 - progress, 3);
 
-      const currentValue = Math.floor(easedProgress * end);
-
-      setCount(currentValue);
+      setCount(Math.floor(easedProgress * end));
 
       if (progress < 1) {
         animationFrame = requestAnimationFrame(animate);
@@ -72,8 +74,8 @@ function AnimatedCounter({
   }, [started, end, duration]);
 
   return (
-    <span ref={ref}>
-      {count}
+    <span ref={ref} aria-label={`${end}${suffix}`}>
+      {count.toLocaleString()}
       {suffix}
     </span>
   );
