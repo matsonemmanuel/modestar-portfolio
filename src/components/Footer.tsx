@@ -52,7 +52,7 @@ function Footer() {
 
             <div className="mt-7 flex items-center gap-3">
               <a
-                href="#"
+                href="https://www.linkedin.com/in/kabasinguzi-modestar-107319372/"
                 aria-label="LinkedIn"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/60 transition-colors duration-300 hover:border-gold hover:text-gold"
               >
