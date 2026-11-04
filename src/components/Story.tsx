@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
 import storyPortrait from "../assets/images/mode.jpg";
+import lifechangeImage from "../assets/images/lifechange.jpg";
 
 const storyChapters = [
   {
@@ -159,40 +160,73 @@ function Story() {
           </div>
 
           <div className="space-y-0">
-            {storyChapters.map((chapter) => (
-              <motion.article
-                key={chapter.number}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.65, delay: 0.05 }}
-                className="grid gap-5 border-t border-[#D9D4C9] py-12 md:grid-cols-[110px_1fr] md:gap-10 md:py-16"
-              >
-                <div>
-                  <span className="font-serif text-4xl text-[#C8A45D]">
-                    {chapter.number}
-                  </span>
-                  <div className="mt-4 hidden h-10 w-px bg-[#C8A45D] md:block" />
-                </div>
+            
+{storyChapters.map((chapter) => (
+  <>
+    <motion.article
+      key={chapter.number}
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.65, delay: 0.05 }}
+      className="grid gap-5 border-t border-[#D9D4C9] py-12 md:grid-cols-[110px_1fr] md:gap-10 md:py-16"
+    >
+      <div>
+        <span className="font-serif text-4xl text-[#C8A45D]">
+          {chapter.number}
+        </span>
+        <div className="mt-4 hidden h-10 w-px bg-[#C8A45D] md:block" />
+      </div>
 
-                <div>
-                  <h4 className="mb-7 font-serif text-2xl text-[#0B1F33] md:text-3xl">
-                    {chapter.title}
-                  </h4>
+      <div>
+        <h4 className="mb-7 font-serif text-2xl text-[#0B1F33] md:text-3xl">
+          {chapter.title}
+        </h4>
 
-                  <div className="max-w-3xl space-y-5">
-                    {chapter.paragraphs.map((paragraph, paragraphIndex) => (
-                      <p
-                        key={paragraphIndex}
-                        className="text-base leading-8 text-[#667085] md:text-[17px]"
-                      >
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              </motion.article>
-            ))}
+        <div className="max-w-3xl space-y-5">
+          {chapter.paragraphs.map((paragraph, paragraphIndex) => (
+            <p
+              key={paragraphIndex}
+              className="text-base leading-8 text-[#667085] md:text-[17px]"
+            >
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      </div>
+    </motion.article>
+
+    {/* Community engagement photograph after Chapter 03 */}
+    {chapter.number === "03" && (
+      <motion.figure
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
+        className="relative my-10 md:my-16"
+      >
+        <div className="absolute -left-3 -top-3 h-full w-full border border-[#C8A45D] md:-left-5 md:-top-5" />
+
+        <img
+          src={lifechangeImage}
+          alt="A woman speaking to a group of young people during a community gathering."
+          className="relative z-10 max-h-[620px] w-full object-cover object-center"
+        />
+
+        <figcaption className="relative z-10 mt-5 flex flex-col gap-2 border-l-2 border-[#C8A45D] pl-5 sm:flex-row sm:items-center sm:justify-between">
+          <span className="font-serif text-lg italic text-[#0B1F33]">
+            Creating spaces for dialogue, learning and opportunity.
+          </span>
+
+          <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#C8A45D]">
+            Community Engagement
+          </span>
+        </figcaption>
+      </motion.figure>
+    )}
+  </>
+))}
+
           </div>
         </div>
 
