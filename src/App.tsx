@@ -1,7 +1,9 @@
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 
 import About from "./components/About";
+import Story from "./components/Story";
 import Journey from "./components/Journey";
 import Leadership from "./components/Leadership";
 import CommunityImpact from "./components/CommunityImpact";
@@ -20,8 +22,9 @@ function App() {
 
       <main>
         <Hero />
-        
+
         <About />
+        <Story />
         <Journey />
         <Leadership />
         <CommunityImpact />

@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import kmLogo from "../assets/images/kaM.png";
@@ -5,6 +6,7 @@ import kmLogo from "../assets/images/kaM.png";
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Her Story", href: "#story" },
   { name: "Leadership", href: "#leadership" },
   { name: "Impact", href: "#impact" },
   { name: "Fellowships", href: "#fellowships" },
@@ -18,40 +20,40 @@ function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-  const handleScroll = () => {
-    const navHeight = 76;
-    const triggerPoint = window.scrollY + navHeight + 30;
+    const handleScroll = () => {
+      const navHeight = 76;
+      const triggerPoint = window.scrollY + navHeight + 30;
 
-    let currentSection = "home";
+      let currentSection = "home";
 
-    navLinks.forEach((link) => {
-      const section = document.querySelector(
-        link.href
-      ) as HTMLElement | null;
+      navLinks.forEach((link) => {
+        const section = document.querySelector(
+          link.href
+        ) as HTMLElement | null;
 
-      if (!section) return;
+        if (!section) return;
 
-      const sectionTop =
-        section.getBoundingClientRect().top + window.scrollY;
+        const sectionTop =
+          section.getBoundingClientRect().top + window.scrollY;
 
-      if (triggerPoint >= sectionTop) {
-        currentSection = section.id;
-      }
+        if (triggerPoint >= sectionTop) {
+          currentSection = section.id;
+        }
+      });
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
     });
 
-    setActiveSection(currentSection);
-  };
+    handleScroll();
 
-  window.addEventListener("scroll", handleScroll, {
-    passive: true,
-  });
-
-  handleScroll();
-
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  };
-}, []);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleNavClick = (href: string) => {
     const sectionId = href.replace("#", "");
@@ -63,7 +65,6 @@ function Navbar() {
     <header className="fixed left-0 right-0 top-0 z-50 bg-navy">
       <nav className="mx-auto flex h-[76px] max-w-[1400px] items-center justify-between px-6 lg:px-10">
         {/* Brand */}
-        {/* PERSONAL BRAND LOGO */}
         <a
           href="#home"
           aria-label="Back to homepage"
@@ -74,9 +75,10 @@ function Navbar() {
             alt="KM Personal Brand"
             className="h-12 w-auto max-w-[110px] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-14"
           />
+
           <span className="text-[9px] uppercase tracking-[0.25em] text-gold">
-                  Leadership • Impact
-                </span>
+            Leadership • Impact
+          </span>
         </a>
 
         {/* Desktop navigation */}

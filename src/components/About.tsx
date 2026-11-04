@@ -6,7 +6,7 @@ import {
   FiUsers,
 } from "react-icons/fi";
 
-import aboutImage from "../assets/images/about.jpg";
+import aboutImage from "../assets/images/southafrica.jpg";
 
 function About() {
   return (
@@ -157,3 +157,4 @@ function About() {
 }
 
 export default About;
+
