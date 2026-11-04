@@ -159,7 +159,7 @@ function Story() {
           </div>
 
           <div className="space-y-0">
-            {storyChapters.map((chapter, index) => (
+            {storyChapters.map((chapter) => (
               <motion.article
                 key={chapter.number}
                 initial={{ opacity: 0, y: 25 }}
