@@ -107,9 +107,10 @@ function Navbar() {
             );
           })}
 
+          {/* Desktop Download Resume */}
           <a
-            href="#contact"
-            onClick={() => handleNavClick("#contact")}
+            href="/Modestar_CV.pdf"
+            download="Modestar-Kabasinguzi-CV.pdf"
             className="ml-2 rounded-md bg-gold px-5 py-2.5 text-sm font-semibold text-navy transition-colors duration-300 hover:bg-[#d8b66d]"
           >
             Download Resume
@@ -122,6 +123,7 @@ function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           className="cursor-pointer text-2xl text-white lg:hidden"
           aria-label="Toggle navigation"
+          aria-expanded={menuOpen}
         >
           {menuOpen ? <FiX /> : <FiMenu />}
         </button>
@@ -157,9 +159,11 @@ function Navbar() {
               );
             })}
 
+            {/* Mobile Download Resume */}
             <a
-              href="#contact"
-              onClick={() => handleNavClick("#contact")}
+              href="/Modestar_CV.pdf"
+              download="Modestar-Kabasinguzi-CV.pdf"
+              onClick={() => setMenuOpen(false)}
               className="mt-5 rounded-md bg-gold px-5 py-3 text-center text-sm font-semibold text-navy transition-colors duration-300 hover:bg-[#d8b66d]"
             >
               Download Resume
