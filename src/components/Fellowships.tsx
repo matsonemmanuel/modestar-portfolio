@@ -6,7 +6,7 @@ import {
   FiAward,
 } from "react-icons/fi";
 
-import southAfricaImage from "../assets/images/southafrica.jpg";
+import southAfricaImage from "../assets/images/south.jpg";
 
 const fellowships = [
   {
